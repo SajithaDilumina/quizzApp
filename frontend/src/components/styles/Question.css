@@ -1,7 +1,6 @@
-.container {
-  margin-top: 5%;
+.question-container {
+  margin: 5%;
   justify-content: center;
-  max-width: 400px;
   padding: 20px;
   background-color: #f3f3f3;
   border-radius: 5px;
@@ -11,6 +10,7 @@
 .question {
   margin-left: 10px;
 }
+
 .question p {
   font-size: 18px;
   font-weight: bold;
@@ -53,19 +53,22 @@
 
 .next {
   justify-content: center;
-  height: 40px;
+  padding: 10px;
   margin-left: 20px;
-  background-color: #007bff;
+  background-color: #3a7d90;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-.select input[type="radio"]:checked + label {
-  background-color: #d4edda;
-  border: 1px solid #d4edda;
+
+.option input[type="radio"]:checked + label {
+  background-color: #3a7d90;
+  border: 1px solid #3a7d90;
+  color: #fff;
   box-shadow: 0 0 5px rgba(42, 182, 115, 0.5);
 }
+
 .text-center {
   display: flex;
   justify-content: center;

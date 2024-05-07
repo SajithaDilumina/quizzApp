@@ -1,10 +1,11 @@
 import React from "react";
 import "./styles/Introduction.css";
 import { Link } from "react-router-dom";
+import SupportEngine from "./SupportEngine";
 
 export default function Introduction() {
   return (
-    <div className="container">
+    <div className="intro-container">
       <h1>Welcome to the Quiz!</h1>
       <p>
         Are you ready to test your knowledge? This quiz covers a variety of
@@ -19,6 +20,7 @@ export default function Introduction() {
           <button className="action-button">Start Quiz</button>
         </Link>
       </div>
+      <SupportEngine />
     </div>
   );
 }

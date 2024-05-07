@@ -41,6 +41,7 @@ export default function Question() {
       toast.error("Please answer the question!");
       return;
     }
+
     checkAnswer(
       selectedOptions,
       currentQuestionIndex,
@@ -50,15 +51,29 @@ export default function Question() {
       setCorrectAnswers
     );
 
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+
     if (currentQuestionIndex === questions.length - 1) {
       const endTime = Date.now();
       const timeTaken = endTime - startTime;
       const correctAnswersCount = correctAnswerCount;
-      window.location.href = `/score?correct=${correctAnswersCount}&time=${timeTaken}`;
-      return;
+
+      axios
+        .post("http://localhost:8070/results", {
+          correctAnswers: correctAnswersCount,
+          milliseconds: timeTaken,
+        })
+        .then((response) => {
+          console.log("Marks and time saved successfully");
+
+          // Redirect to the score page
+          window.location.href = `/score?correct=${correctAnswersCount}&time=${timeTaken}`;
+        })
+        .catch((error) => {
+          console.error("Error saving marks and time:", error);
+        });
     }
 
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     if (startTime === null && currentQuestionIndex === 0) {
       setStartTime(Date.now());
     }
@@ -76,7 +91,7 @@ export default function Question() {
   };
 
   return (
-    <div className="container">
+    <div className="question-container">
       <div className="timer">
         {startTime !== null && <Timer startTime={startTime} />}
       </div>

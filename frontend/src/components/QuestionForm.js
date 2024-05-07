@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./styles/QuestionForm.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/QuestionForm.css";
 
 const QuestionForm = () => {
   const [questionText, setQuestionText] = useState("");
@@ -33,9 +33,9 @@ const QuestionForm = () => {
       return;
     }
     if (
-      trimmedOptions.some((option) => option.length < 2 || option.length > 50)
+      trimmedOptions.some((option) => option.length < 2 || option.length > 80)
     ) {
-      toast.error("Option text must be between 2 and 50 characters");
+      toast.error("Option text must be between 2 and 80 characters");
       return;
     }
 
@@ -65,46 +65,50 @@ const QuestionForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Question:</label>
-      <input
-        type="text"
-        value={questionText}
-        onChange={(e) => setQuestionText(e.target.value)}
-        required
-      />
-
-      <label>Options:</label>
-      {options.map((option, index) => (
+    <div id="formContainer">
+      <h1>Add Questions</h1>
+      <form id="questionForm" onSubmit={handleSubmit}>
+        <label htmlFor="questionText">Question:</label>
         <input
-          key={index}
           type="text"
-          value={option}
-          onChange={(e) =>
-            setOptions([
-              ...options.slice(0, index),
-              e.target.value,
-              ...options.slice(index + 1),
-            ])
-          }
+          id="questionText"
+          value={questionText}
+          onChange={(e) => setQuestionText(e.target.value)}
           required
         />
-      ))}
 
-      <label>Correct Option:</label>
-      <select
-        value={correctOption}
-        onChange={(e) => setCorrectOption(parseInt(e.target.value))}
-      >
+        <label htmlFor="options">Options:</label>
         {options.map((option, index) => (
-          <option key={index} value={index}>
-            {option}
-          </option>
+          <input
+            key={index}
+            type="text"
+            value={option}
+            onChange={(e) =>
+              setOptions([
+                ...options.slice(0, index),
+                e.target.value,
+                ...options.slice(index + 1),
+              ])
+            }
+            required
+          />
         ))}
-      </select>
 
-      <button type="submit">Submit</button>
-    </form>
+        <label htmlFor="correctOption">Correct Option:</label>
+        <select
+          value={correctOption}
+          onChange={(e) => setCorrectOption(parseInt(e.target.value))}
+        >
+          {options.map((option, index) => (
+            <option key={index} value={index}>
+              {option}
+            </option>
+          ))}
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 

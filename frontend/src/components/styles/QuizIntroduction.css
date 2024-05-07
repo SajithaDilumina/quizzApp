@@ -1,28 +1,25 @@
-.container1 {
-  max-width: 600px;
+.quiz-container {
+  margin: 5%;
+  justify-content: center;
   padding: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(82, 84, 83, 0.5);
 }
 
-h1 {
+.h1 {
   color: #3a7d90;
 }
 
-p {
+.p {
   font-size: 18px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
-ol {
+.ol {
   text-align: left;
   margin-bottom: 20px;
-}
-
-li {
-  margin-bottom: 10px;
 }
 
 .start-button {
@@ -37,4 +34,8 @@ li {
 
 .start-button:hover {
   background-color: #205662;
+}
+
+#instruction {
+  margin-bottom: 10px;
 }

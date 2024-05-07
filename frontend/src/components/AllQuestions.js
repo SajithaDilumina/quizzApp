@@ -77,13 +77,15 @@ export default function AllQuestions() {
             ))}
           </ol>
         </td>
-        <td className="col-2">{question.correctOption + 1}</td>
-        <td className="icon-cell">
+        <td id="correctOption" className="col-2">
+          {question.correctOption + 1}
+        </td>
+        <td id="iconCell" className="icon-cell">
           <Link to={`update/${question._id}`}>
             <FontAwesomeIcon className="icon" icon={faPen} />
           </Link>
         </td>
-        <td className="icon-cell">
+        <td id="iconCell" className="icon-cell">
           <Link
             to={`delete/${question._id}`}
             onClick={(event) => handleDelete(question._id, event)}
@@ -102,29 +104,27 @@ export default function AllQuestions() {
 
   return (
     <div>
-      <div className="top-right-container">
-        <div className="search">
+      <div id="topRightContainer">
+        <div id="search">
           <SearchContainer onSearch={handleSearch} />
         </div>
-        <div className="add-questions">
-          <Link to="/add">
-            <button className="btn btn-primary">
-              <FontAwesomeIcon icon={faPlus} className="plus" />
-              Add Questions
-            </button>
-          </Link>
-        </div>
+        <Link to="/add">
+          <button id="addQuestions">
+            <FontAwesomeIcon icon={faPlus} className="plus" />
+            Add Questions
+          </button>
+        </Link>
       </div>
 
-      <div className="table-responsive">
-        <table className="table table-striped">
-          <thead className="table-dark">
+      <div id="tableResponsive">
+        <table id="questionsTable">
+          <thead id="tableHead">
             <tr>
-              <th className="col-4">Question</th>
-              <th className="col-4">Options</th>
-              <th className="col-2">Correct Option</th>
-              <th className="icon-cell"></th>
-              <th className="icon-cell"></th>
+              <th>Question</th>
+              <th>Options</th>
+              <th>Correct Option</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>{displayQuestions}</tbody>

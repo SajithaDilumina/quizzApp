@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./styles/EditQuestions.css";
 
 const EditQuestions = () => {
   const { id } = useParams();
@@ -46,10 +47,10 @@ const EditQuestions = () => {
   };
 
   return (
-    <div className="form-container">
-      <h1>Edit Question</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div id="formContainer">
+      <h1>Edit Questions</h1>
+      <form id="questionForm" onSubmit={handleSubmit}>
+        <div className="form-group">
           <label>Question Text:</label>
           <input
             type="text"
@@ -58,7 +59,7 @@ const EditQuestions = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Options:</label>
           {question.options.map((option, index) => (
             <input
@@ -70,7 +71,7 @@ const EditQuestions = () => {
             />
           ))}
         </div>
-        <div>
+        <div className="form-group">
           <label>Correct Option:</label>
           <select
             name="correctOption"

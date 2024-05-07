@@ -1,17 +1,18 @@
-/* Introduction.css */
-
-body {
+.body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0; /* Background color */
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.intro-container {
+  margin: 5%;
+  justify-content: center;
   padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(82, 84, 83, 0.5);
 }
 
-h1 {
+.h1 {
   color: #3a7d90; /* Theme color for headings */
 }
 

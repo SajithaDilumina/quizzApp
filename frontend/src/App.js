@@ -9,6 +9,7 @@ import QuizIndroduction from "./components/QuizIndroduction";
 import Scoreboard from "./components/Scoreboard";
 import Footer from "./components/Footer";
 import NavBar from "./components/Header";
+import SupportAdmin from "./components/SupportAdmin";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/score" element={<Scoreboard />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/navbar" element={<NavBar />} />
+        <Route path="/support" element={<SupportAdmin />} />
       </Routes>
     </Router>
   );

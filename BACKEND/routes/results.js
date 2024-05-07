@@ -26,6 +26,28 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/scores", async (req, res) => {
+  try {
+    // Retrieve all results from the database
+    const results = await Result.find();
+
+    // Sort the results based on correct answers (descending) and time taken (ascending)
+    results.sort((a, b) => {
+      if (a.correctAnswers !== b.correctAnswers) {
+        return b.correctAnswers - a.correctAnswers;
+      } else {
+        return a.timeTaken - b.timeTaken;
+      }
+    });
+
+    // Send the sorted results to the frontend
+    res.status(200).json(results);
+  } catch (error) {
+    console.error("Error fetching scores:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 // Other routes related to results can be defined here if needed
 
 module.exports = router;

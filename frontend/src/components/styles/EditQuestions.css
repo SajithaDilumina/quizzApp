@@ -3,8 +3,8 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #formContainer h1 {
@@ -12,18 +12,20 @@
   margin-bottom: 20px;
 }
 
+#questionForm .form-group {
+  margin-bottom: 20px;
+}
+
 #questionForm label {
   display: block;
   margin-bottom: 5px;
-  color: #3a7d90;
-  font-size: 18px;
+  color: #333;
 }
 
 #questionForm input[type="text"],
 #questionForm select {
   width: 100%;
   padding: 8px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -46,16 +48,4 @@
 
 #questionForm button:hover {
   background-color: #23525f;
-}
-
-.toastify {
-  font-family: Arial, sans-serif;
-}
-
-.toastify.toastify--error {
-  background-color: #f44336;
-}
-
-.toastify.toastify--success {
-  background-color: #4caf50;
 }
